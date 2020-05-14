@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3-dev [2020-05-14]
+
+* Feature: add support to subgraph cluster attributes
+
+    ```php
+    $graph = new Graph();
+    $graph->setAttribute('graphviz.cluster.0.graph.bgcolor', 'lightblue');
+    $graph->setAttribute('graphviz.cluster.1.node.fillcolor', 'lightgrey');
+    $graph->setAttribute('graphviz.cluster.1.node.style', 'filled');
+    ```
+
 ## 0.2.2 (2019-10-04)
 
 *   Feature: Omit root graph name unless explicitly assigned via `graphviz.name` attribute.

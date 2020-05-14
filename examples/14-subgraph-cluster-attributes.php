@@ -6,9 +6,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $graph = new Graphp\Graph\Graph();
 $graph->setAttribute('graphviz.graph.rankdir', 'LR');
-$graph->setAttribute('graphviz.subgraph.cluster_0.graph.bgcolor', 'lightblue');
-$graph->setAttribute('graphviz.subgraph.cluster_1.node.fillcolor', 'lightgrey');
-$graph->setAttribute('graphviz.subgraph.cluster_1.node.style', 'filled');
+$graph->setAttribute('graphviz.cluster.0.graph.bgcolor', 'lightblue');
+$graph->setAttribute('graphviz.cluster.1.node.fillcolor', 'lightgrey');
+$graph->setAttribute('graphviz.cluster.1.node.style', 'filled');
 
 // create some cities
 $rome = $graph->createVertex(array('id' => 'Rome'));

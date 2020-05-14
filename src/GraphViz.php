@@ -283,9 +283,9 @@ class GraphViz
         if (count($groups) > 1) {
             // add subgraph cluster attributes
             $clusters = array(
-                'graph' => 'graphviz.subgraph.cluster_%d.graph.',
-                'node'  => 'graphviz.subgraph.cluster_%d.node.',
-                'edge'  => 'graphviz.subgraph.cluster_%d.edge.',
+                'graph' => 'graphviz.cluster.%s.graph.',
+                'node'  => 'graphviz.cluster.%s.node.',
+                'edge'  => 'graphviz.cluster.%s.edge.',
             );
             $indent = str_repeat($this->formatIndent, 2);
             $gid = 0;
@@ -293,8 +293,12 @@ class GraphViz
             foreach ($groups as $group => $vertices) {
                 $script .= $this->formatIndent . 'subgraph cluster_' . $gid . ' {' . self::EOL;
                 foreach ($clusters as $key => $prefix) {
-                    if ($layout = $this->getAttributesPrefixed($graph, sprintf($prefix, $gid))) {
-                        $script .= $indent . $key . ' ' . $this->escapeAttributes($layout) . self::EOL;
+                    foreach (array($group, $gid) as $clusterId) {
+                        $layout = $this->getAttributesPrefixed($graph, sprintf($prefix, $clusterId));
+                        if (!empty($layout)) {
+                            $script .= $indent . $key . ' ' . $this->escapeAttributes($layout) . self::EOL;
+                            break;
+                        }
                     }
                 }
                 $script .= $indent . 'label = ' . $this->escape($group) . self::EOL;
