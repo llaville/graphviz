@@ -336,7 +336,7 @@ class GraphViz
 
         // add all edges as directed edges
         foreach ($graph->getEdges() as $currentEdge) {
-            $both = $currentEdge->getVertices()->getVector();
+            $both = $currentEdge->getVertices();
             $currentStartVertex = $both[0];
             $currentTargetVertex = $both[1];
 
