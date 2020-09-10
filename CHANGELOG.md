@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3-dev [2020-05-14]
+## 0.3-dev [2020-09-10]
 
 * Feature: add support to subgraph cluster attributes
 
@@ -10,6 +10,10 @@
     $graph->setAttribute('graphviz.cluster.1.node.fillcolor', 'lightgrey');
     $graph->setAttribute('graphviz.cluster.1.node.style', 'filled');
     ```
+
+* synchronize with `graphp/graph` master branch (still under development) and fix it to commit [214de45](https://github.com/graphp/graph/commit/214de4572f0fa8a452addcf6135f87bfd3dec4ab)
+due to new feature
+  - [Remove `Vertices` and `Edges` collection classes, use plain arrays instead](https://github.com/graphp/graph/pull/195)
 
 ## 0.2.2 (2019-10-04)
 
